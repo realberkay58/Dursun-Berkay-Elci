@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dursun Berkay Elçi — Bioengineering Student &amp; Researcher</title>
+<meta name="description" content="Portfolio of Dursun Berkay Elçi, Bioengineering student researching bioinformatics, genetic data analysis and molecular biology.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+<style>
+  :root{
+    --bg:#0b120f;
+    --surface:#101812;
+    --surface-2:#141d17;
+    --border:#22302a;
+    --text:#e9f1eb;
+    --text-muted:#8fa79a;
+    --text-faint:#5d7267;
+    --moss:#8fbf9f;
+    --moss-bright:#a9d9b7;
+    --amber:#d9a857;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+    --sidebar-w:300px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{
+    scroll-behavior:smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  }
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  ::selection{ background:var(--moss); color:#08110c; }
+
+  :focus-visible{
+    outline:2px solid var(--moss-bright);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  img{ max-width:100%; display:block; }
+
+  /* ---------- layout shell ---------- */
+  .shell{
+    display:flex;
+    min-height:100vh;
+  }
+
+  /* ---------- sidebar ---------- */
+  .sidebar{
+    position:sticky;
+    top:0;
+    height:100vh;
+    width:var(--sidebar-w);
+    flex-shrink:0;
+    padding:3rem 2.25rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    border-right:1px solid var(--border);
+    background:linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  }
+
+  .sidebar-top .eyebrow-code{
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    color:var(--text-faint);
+    letter-spacing:0.08em;
+  }
+
+  .sidebar-name{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.55rem;
+    line-height:1.25;
+    margin-top:0.9rem;
+    color:var(--text);
+  }
+
+  .sidebar-role{
+    margin-top:0.6rem;
+    font-size:0.92rem;
+    color:var(--moss);
+    font-weight:500;
+  }
+
+  .sidebar-nav{
+    margin-top:3rem;
+    display:flex;
+    flex-direction:column;
+    gap:0.35rem;
+  }
+
+  .sidebar-nav a{
+    display:flex;
+    align-items:baseline;
+    gap:0.8rem;
+    padding:0.55rem 0.4rem;
+    border-radius:6px;
+    color:var(--text-muted);
+    font-size:0.95rem;
+    transition:color 0.2s ease, background 0.2s ease, padding-left 0.2s ease;
+  }
+
+  .sidebar-nav a .code{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    color:var(--text-faint);
+    width:2rem;
+    flex-shrink:0;
+  }
+
+  .sidebar-nav a:hover,
+  .sidebar-nav a:focus-visible{
+    color:var(--text);
+    background:var(--surface-2);
+    padding-left:0.7rem;
+  }
+
+  .sidebar-nav a:hover .code,
+  .sidebar-nav a:focus-visible .code{
+    color:var(--moss);
+  }
+
+  .sidebar-bottom{
+    display:flex;
+    flex-direction:column;
+    gap:1.1rem;
+  }
+
+  .sidebar-links{
+    display:flex;
+    gap:1.1rem;
+  }
+
+  .sidebar-links a{
+    width:2.2rem;
+    height:2.2rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--border);
+    border-radius:8px;
+    color:var(--text-muted);
+    font-size:0.95rem;
+    transition:color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .sidebar-links a:hover,
+  .sidebar-links a:focus-visible{
+    color:var(--moss-bright);
+    border-color:var(--moss);
+    transform:translateY(-2px);
+  }
+
+  .sidebar-note{
+    font-family:var(--font-mono);
+    font-size:0.68rem;
+    color:var(--text-faint);
+    line-height:1.5;
+  }
+
+  /* ---------- main content ---------- */
+  main{
+    flex:1;
+    min-width:0;
+    padding:4.5rem 4rem 6rem;
+    max-width:920px;
+  }
+
+  section{
+    padding-top:2.5rem;
+    scroll-margin-top:2rem;
+  }
+
+  section + section{
+    margin-top:5.5rem;
+    border-top:1px solid var(--border);
+  }
+
+  .section-label{
+    display:flex;
+    align-items:center;
+    gap:0.9rem;
+    margin-bottom:1.8rem;
+  }
+
+  .section-label .code{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    color:var(--amber);
+    border:1px solid var(--border);
+    padding:0.2rem 0.5rem;
+    border-radius:5px;
+  }
+
+  .section-label h2{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.35rem;
+    color:var(--text);
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding-top:0.5rem;
+    position:relative;
+  }
+
+  .hero-kicker{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    color:var(--moss);
+    letter-spacing:0.03em;
+  }
+
+  .hero h1{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(2.3rem, 4.2vw, 3.4rem);
+    line-height:1.12;
+    margin-top:0.9rem;
+    max-width:14ch;
+    color:var(--text);
+  }
+
+  .hero-scan{
+    width:min(420px, 70%);
+    height:22px;
+    margin-top:1.1rem;
+    overflow:visible;
+  }
+
+  .hero-scan path{
+    fill:none;
+    stroke:var(--moss);
+    stroke-width:1.6;
+    stroke-linecap:round;
+    stroke-dasharray:480;
+    stroke-dashoffset:480;
+    animation:draw-scan 1.8s ease-out 0.3s forwards;
+  }
+
+  @keyframes draw-scan{
+    to{ stroke-dashoffset:0; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero-scan path{ animation:none; stroke-dashoffset:0; }
+  }
+
+  .hero-bio{
+    margin-top:1.8rem;
+    max-width:62ch;
+    color:var(--text-muted);
+    font-size:1.03rem;
+  }
+
+  .hero-tags{
+    margin-top:1.8rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.55rem;
+  }
+
+  .hero-tags span{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    color:var(--text-muted);
+    border:1px solid var(--border);
+    padding:0.32rem 0.65rem;
+    border-radius:100px;
+  }
+
+  /* ---------- projects ---------- */
+  .project-row{
+    display:grid;
+    grid-template-columns:3rem 1fr;
+    gap:1.4rem;
+    padding:1.6rem 0.5rem;
+    border-radius:8px;
+    transition:background 0.2s ease;
+  }
+
+  .project-row:hover{
+    background:var(--surface);
+  }
+
+  .project-row + .project-row{
+    border-top:1px solid var(--border);
+  }
+
+  .project-index{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    color:var(--text-faint);
+    padding-top:0.2rem;
+  }
+
+  .project-content h3{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:1.12rem;
+    color:var(--text);
+    margin-bottom:0.55rem;
+  }
+
+  .project-content p{
+    color:var(--text-muted);
+    font-size:0.96rem;
+    max-width:65ch;
+  }
+
+  .project-stack{
+    margin-top:0.9rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.5rem;
+  }
+
+  .project-stack span{
+    font-family:var(--font-mono);
+    font-size:0.68rem;
+    color:var(--amber);
+    background:rgba(217,168,87,0.08);
+    border:1px solid rgba(217,168,87,0.25);
+    padding:0.22rem 0.55rem;
+    border-radius:5px;
+  }
+
+  .report-btn{
+    margin-top:1.1rem;
+    display:inline-flex;
+    align-items:center;
+    gap:0.55rem;
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    color:var(--moss-bright);
+    border:1px solid var(--moss);
+    padding:0.5rem 0.9rem;
+    border-radius:6px;
+    transition:background 0.2s ease, color 0.2s ease;
+  }
+
+  .report-btn:hover,
+  .report-btn:focus-visible{
+    background:var(--moss);
+    color:#08110c;
+  }
+
+  /* ---------- skills ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:2.2rem;
+  }
+
+  .skill-group h3{
+    font-family:var(--font-display);
+    font-size:1rem;
+    font-weight:600;
+    color:var(--moss-bright);
+    margin-bottom:0.9rem;
+  }
+
+  .skill-group ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:0.65rem;
+  }
+
+  .skill-group li{
+    font-size:0.92rem;
+    color:var(--text-muted);
+    padding-left:1rem;
+    position:relative;
+  }
+
+  .skill-group li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0.55em;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:var(--amber);
+  }
+
+  /* ---------- contact ---------- */
+  .contact-intro{
+    color:var(--text-muted);
+    max-width:55ch;
+    margin-bottom:2rem;
+  }
+
+  .contact-list{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+
+  .contact-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:1.15rem 0.4rem;
+    border-top:1px solid var(--border);
+    transition:padding-left 0.2s ease, color 0.2s ease;
+  }
+
+  .contact-item:last-child{
+    border-bottom:1px solid var(--border);
+  }
+
+  .contact-item:hover,
+  .contact-item:focus-visible{
+    padding-left:0.9rem;
+    color:var(--moss-bright);
+  }
+
+  .contact-item .label{
+    display:flex;
+    align-items:center;
+    gap:0.9rem;
+    font-family:var(--font-display);
+    font-weight:500;
+    font-size:1rem;
+  }
+
+  .contact-item .label i{
+    width:1.4rem;
+    color:var(--moss);
+    text-align:center;
+  }
+
+  .contact-item .value{
+    font-family:var(--font-mono);
+    font-size:0.82rem;
+    color:var(--text-faint);
+  }
+
+  footer{
+    margin-top:5rem;
+    padding-top:2rem;
+    border-top:1px solid var(--border);
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    color:var(--text-faint);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:0.6rem;
+  }
+
+  /* ---------- mobile top bar (hidden on desktop) ---------- */
+  .mobile-bar{ display:none; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1023px){
+    .shell{ flex-direction:column; }
+
+    .sidebar{ display:none; }
+
+    .mobile-bar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      position:sticky;
+      top:0;
+      z-index:10;
+      background:rgba(11,18,15,0.92);
+      backdrop-filter:blur(6px);
+      padding:1.1rem 1.5rem;
+      border-bottom:1px solid var(--border);
+    }
+
+    .mobile-bar .name{
+      font-family:var(--font-display);
+      font-weight:600;
+      font-size:1rem;
+    }
+
+    .mobile-bar nav{
+      display:flex;
+      gap:1.1rem;
+    }
+
+    .mobile-bar nav a{
+      font-family:var(--font-mono);
+      font-size:0.75rem;
+      color:var(--text-muted);
+    }
+
+    .mobile-bar nav a:hover{ color:var(--moss); }
+
+    main{
+      padding:2.5rem 1.5rem 4rem;
+      max-width:100%;
+    }
+
+    .skills-grid{
+      grid-template-columns:1fr;
+      gap:2rem;
+    }
+
+    .project-row{
+      grid-template-columns:2rem 1fr;
+    }
+  }
+
+  @media (max-width: 480px){
+    .contact-item .value{ display:none; }
+    .mobile-bar nav{ gap:0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="mobile-bar">
+  <span class="name">D. Berkay Elçi</span>
+  <nav>
+    <a href="#about">AB</a>
+    <a href="#projects">PJ</a>
+    <a href="#skills">SK</a>
+    <a href="#contact">CT</a>
+  </nav>
+</div>
+
+<div class="shell">
+
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="eyebrow-code">AGU · BIOENGINEERING</div>
+      <div class="sidebar-name">Dursun Berkay<br>Elçi</div>
+      <div class="sidebar-role">Bioengineering Student &amp; Researcher</div>
+
+      <nav class="sidebar-nav" aria-label="Section navigation">
+        <a href="#about"><span class="code">AB</span>About</a>
+        <a href="#projects"><span class="code">PJ</span>Projects</a>
+        <a href="#skills"><span class="code">SK</span>Skills</a>
+        <a href="#contact"><span class="code">CT</span>Contact</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-links">
+        <a href="mailto:berkay@student.agu.edu.tr" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/d-berkay-elçi-19340b232/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://github.com/realberkay58" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+      <div class="sidebar-note">Abdullah Gül University<br>Kayseri, Türkiye</div>
+    </div>
+  </aside>
+
+  <main>
+
+    <section id="about" class="hero">
+      <div class="hero-kicker">Bioinformatics · Molecular Biology · Python</div>
+      <h1>Decoding biology at the cellular level, one sequence at a time.</h1>
+
+      <svg class="hero-scan" viewBox="0 0 420 22" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,11 L40,11 L48,3 L58,19 L68,3 L78,19 L88,11 L130,11 L138,4 L146,18 L154,4 L162,18 L170,11 L420,11" />
+      </svg>
+
+      <p class="hero-bio">
+        I am an undergraduate Bioengineering student at Abdullah Gül University with a strong focus on bioinformatics, genetic data analysis, and molecular biology. My primary goal is to decipher complex biological problems at the cellular level using Python-based data mining tools and sequence alignment algorithms. I actively integrate current methodologies learned from academic platforms and life sciences congresses into my research projects.
+      </p>
+
+      <div class="hero-tags">
+        <span>Python</span>
+        <span>BioPython</span>
+        <span>Sequence Alignment</span>
+        <span>ClinVar / Ensembl / NCBI</span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-label"><span class="code">PJ</span><h2>Projects</h2></div>
+
+      <div class="project-row">
+        <div class="project-index">01</div>
+        <div class="project-content">
+          <h3>Human and C. elegans Orthologous Variant Detection</h3>
+          <p>Developed an automated Python pipeline (Pandas, BioPython) to extract and filter thousands of genetic data points from ClinVar, Ensembl, NCBI, and WormBase APIs. Successfully identified and eliminated false positive variant matches by conducting evolutionary sequence alignment tests using UniProt FASTA protein sequences.</p>
+          <div class="project-stack">
+            <span>Python</span><span>Pandas</span><span>BioPython</span><span>ClinVar API</span><span>Ensembl</span><span>NCBI</span><span>WormBase</span><span>UniProt</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div class="project-index">02</div>
+        <div class="project-content">
+          <h3>Bioethics Seminar on DNA Research</h3>
+          <p>Prepared a comprehensive academic presentation titled "The Right Not to Know: Ethics of incidental findings in DNA research," analyzing the psychological and ethical dimensions of incidental findings during genetic testing.</p>
+          <div class="project-stack">
+            <span>Bioethics</span><span>Genetic Testing</span><span>Research Presentation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div class="project-index">03</div>
+        <div class="project-content">
+          <h3>Inheritance and Genetic Trait Modeling</h3>
+          <p>Designed a short-format scientific narrative project explaining how genes (specifically the HTT gene) determine human physical characteristics and the transmission of hereditary diseases.</p>
+          <div class="project-stack">
+            <span>Genetics</span><span>HTT Gene</span><span>Heredity</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div class="project-index">04</div>
+        <div class="project-content">
+          <h3>Academic Laboratory Reports</h3>
+          <p>Authored detailed experimental and analytical reports for coursework in cell biology, genetic variant analysis, fluid mechanics, and engineering thermodynamics.</p>
+          <div class="project-stack">
+            <span>Cell Biology</span><span>Variant Analysis</span><span>Fluid Mechanics</span><span>Thermodynamics</span>
+          </div>
+          <a href="#" class="report-btn"><i class="fa-solid fa-file-pdf"></i>View PDF reports</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="section-label"><span class="code">SK</span><h2>Skills &amp; Expertise</h2></div>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Bioinformatics &amp; Software</h3>
+          <ul>
+            <li>Python scripting for data extraction bots</li>
+            <li>Protein sequence alignment (BioPython)</li>
+            <li>Biological database management — ClinVar, Ensembl, NCBI, WormBase, UniProt</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Laboratory &amp; Engineering</h3>
+          <ul>
+            <li>Cell culture assays</li>
+            <li>Thermodynamics</li>
+            <li>Fluid dynamics applications</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Technical &amp; Creative</h3>
+          <ul>
+            <li>Desktop PC hardware building</li>
+            <li>BIOS firmware configuration</li>
+            <li>3D character modeling</li>
+            <li>Ceramic crafting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-label"><span class="code">CT</span><h2>Contact</h2></div>
+      <p class="contact-intro">Reach out about research collaboration, bioinformatics projects, or academic opportunities.</p>
+
+      <div class="contact-list">
+        <a class="contact-item" href="mailto:berkay@student.agu.edu.tr">
+          <span class="label"><i class="fa-solid fa-envelope"></i>Email</span>
+          <span class="value">berkay@student.agu.edu.tr</span>
+        </a>
+        <a class="contact-item" href="#" target="_blank" rel="noopener">
+          <span class="label"><i class="fa-brands fa-linkedin-in"></i>LinkedIn</span>
+          <span class="value">linkedin.com/in/berkay-elci</span>
+        </a>
+        <a class="contact-item" href="#" target="_blank" rel="noopener">
+          <span class="label"><i class="fa-brands fa-github"></i>GitHub</span>
+          <span class="value">github.com/berkay-elci</span>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <span>© <span id="year"></span> Dursun Berkay Elçi</span>
+      <span>Built with HTML &amp; CSS</span>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Highlight active section in sidebar / mobile nav on scroll
+  const sections = document.querySelectorAll('main section[id]');
+  const navLinks = document.querySelectorAll('.sidebar-nav a, .mobile-bar nav a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.style.color = link.getAttribute('href') === '#' + id ? 'var(--moss-bright)' : '';
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
