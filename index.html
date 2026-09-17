@@ -403,44 +403,71 @@
     color: #08110c;
   }
 
-  /* ---------- skills ---------- */
-  .skills-grid {
+  /* ---------- modern skills card grid ---------- */
+  .skills-card-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
   }
 
-  .skill-group h3 {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--moss-bright);
-    margin-bottom: 0.9rem;
-  }
-
-  .skill-group ul {
-    list-style: none;
+  .skill-card {
+    background: var(--surface);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.65rem;
+    transition: all 0.3s ease;
   }
 
-  .skill-group li {
-    font-size: 0.92rem;
-    color: var(--text-muted);
-    padding-left: 1rem;
-    position: relative;
+  .skill-card:hover {
+    border-color: var(--moss);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 240, 255, 0.1);
   }
 
-  .skill-group li::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0.55em;
-    width: 5px;
-    height: 5px;
+  .skill-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  .skill-name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+
+  .skill-cat {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.2rem;
+  }
+
+  .skill-dots {
+    display: flex;
+    gap: 5px;
+    margin-top: auto;
+  }
+
+  .skill-dots span {
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: var(--amber);
+    background: var(--border);
+  }
+
+  .skill-dots span.active {
+    background: var(--moss);
+    box-shadow: 0 0 5px var(--moss);
   }
 
   /* ---------- contact ---------- */
@@ -555,11 +582,6 @@
       max-width: 100%;
     }
 
-    .skills-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
     .project-row {
       grid-template-columns: 2rem 1fr;
     }
@@ -574,7 +596,7 @@
 <body>
 
 <div class="mobile-bar">
-  <span class="name">D. Berkay Elci</span>
+  <span class="name">Berkay Elci</span>
   <nav>
     <a href="#about">AB</a>
     <a href="#projects">PJ</a>
@@ -588,7 +610,7 @@
   <aside class="sidebar">
     <div class="sidebar-top">
       <div class="eyebrow-code">AGU · BIOENGINEERING</div>
-      <div class="sidebar-name">Dursun Berkay<br>Elci</div>
+      <div class="sidebar-name">Berkay<br>Elci</div>
       <div class="sidebar-role">Bioengineering Student &amp; Researcher</div>
 
       <nav class="sidebar-nav" aria-label="Section navigation">
@@ -602,7 +624,7 @@
     <div class="sidebar-bottom">
       <div class="sidebar-links">
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=berxaye@gmail.com" target="_blank" rel="noopener" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/d-berkay-elçi-19340b232/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://www.linkedin.com/in/d-berkay-el%C3%A7i-19340b232/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
         <a href="https://github.com/realberkay58" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
       </div>
       <div class="sidebar-note">Abdullah Gul University<br>Kayseri, Turkey</div>
@@ -685,34 +707,62 @@
     <section id="skills">
       <div class="section-label"><span class="code">SK</span><h2>Skills &amp; Expertise</h2></div>
 
-      <div class="skills-grid">
-        <div class="skill-group">
-          <h3>Bioinformatics &amp; Software</h3>
-          <ul>
-            <li>Python scripting for data extraction bots</li>
-            <li>Protein sequence alignment (BioPython)</li>
-            <li>Biological database management — ClinVar, Ensembl, NCBI, WormBase, UniProt</li>
-          </ul>
+      <div class="skills-card-grid">
+        
+        <div class="skill-card">
+          <div class="skill-icon">🐍</div>
+          <div class="skill-name">Python</div>
+          <div class="skill-cat">Programming</div>
+          <div class="skill-dots">
+            <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span>
+          </div>
         </div>
 
-        <div class="skill-group">
-          <h3>Laboratory &amp; Engineering</h3>
-          <ul>
-            <li>Cell culture assays</li>
-            <li>Thermodynamics</li>
-            <li>Fluid dynamics applications</li>
-          </ul>
+        <div class="skill-card">
+          <div class="skill-icon">🧬</div>
+          <div class="skill-name">BioPython</div>
+          <div class="skill-cat">Bioinformatics</div>
+          <div class="skill-dots">
+            <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span>
+          </div>
         </div>
 
-        <div class="skill-group">
-          <h3>Technical &amp; Creative</h3>
-          <ul>
-            <li>Desktop PC hardware building</li>
-            <li>BIOS firmware configuration</li>
-            <li>3D character modeling</li>
-            <li>Ceramic crafting</li>
-          </ul>
+        <div class="skill-card">
+          <div class="skill-icon">📊</div>
+          <div class="skill-name">Pandas</div>
+          <div class="skill-cat">Data Analysis</div>
+          <div class="skill-dots">
+            <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span></span>
+          </div>
         </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🔬</div>
+          <div class="skill-name">Variant Analysis</div>
+          <div class="skill-cat">Bioinformatics</div>
+          <div class="skill-dots">
+            <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">⚙️</div>
+          <div class="skill-name">Fluid Mechanics</div>
+          <div class="skill-cat">Engineering</div>
+          <div class="skill-dots">
+            <span class="active"></span><span class="active"></span><span class="active"></span><span></span><span></span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">💻</div>
+          <div class="skill-name">PC Hardware</div>
+          <div class="skill-cat">Technical</div>
+          <div class="skill-dots">
+            <span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span><span class="active"></span>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -725,7 +775,7 @@
           <span class="label"><i class="fa-solid fa-envelope"></i>Email</span>
           <span class="value">berxaye@gmail.com</span>
         </a>
-        <a class="contact-item" href="https://www.linkedin.com/in/d-berkay-elçi-19340b232/" target="_blank" rel="noopener">
+        <a class="contact-item" href="https://www.linkedin.com/in/d-berkay-el%C3%A7i-19340b232/" target="_blank" rel="noopener">
           <span class="label"><i class="fa-brands fa-linkedin-in"></i>LinkedIn</span>
           <span class="value">linkedin.com/in/berkay-elci</span>
         </a>
