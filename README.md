@@ -17,5 +17,4 @@ A professional academic and research portfolio website built to showcase my proj
 
 ## Contact
 * **University:** Abdullah Gül University, Bioengineering
-* **Email:** berkay@student.agu.edu.tr
-* 
+* **Email:** berxaye@gmail.com
