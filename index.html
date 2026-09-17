@@ -255,8 +255,9 @@
   .hero-scan path{
     fill:none;
     stroke:var(--moss);
-    stroke-width:1.6;
+    stroke-width:2.5;
     stroke-linecap:round;
+    filter: drop-shadow(0 0 8px var(--moss));
     stroke-dasharray:480;
     stroke-dashoffset:480;
     animation:draw-scan 1.8s ease-out 0.3s forwards;
@@ -298,13 +299,17 @@
     display:grid;
     grid-template-columns:3rem 1fr;
     gap:1.4rem;
-    padding:1.6rem 0.5rem;
-    border-radius:8px;
-    transition:background 0.2s ease;
+    padding:1.6rem 1rem; /* İçerik nefes alsın diye kenar boşluğu eklendi */
+    border-radius:12px; /* Köşeleri biraz daha modernleştirdik */
+    border: 1px solid transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Pürüzsüz animasyon */
   }
 
   .project-row:hover{
     background:var(--surface);
+    border: 1px solid var(--border);
+    transform: translateY(-4px); /* Üzerine gelince kartın hafifçe yukarı kalkması */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4); /* Derinlik hissi veren şık gölge */
   }
 
   .project-row + .project-row{
